@@ -54,3 +54,15 @@ namespace AppointmentSchedule_Infra.Context
         }
     }
 }
+
+
+/*
+ Comandos para executar 
+Migration: Dentro da pasta appointment-schedule-api-dotnet
+dotnet ef migrations add NomeDaNovaMigration --project AppointmentSchedule-Infra --startup-project AppointmentSchedule-API
+
+
+Update: Dentro da pasta appointment-schedule-api-dotnet
+dotnet ef database update --project AppointmentSchedule-Infra --startup-project AppointmentSchedule-API
+
+ */
