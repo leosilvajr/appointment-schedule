@@ -51,8 +51,8 @@ function Profile() {
             <Text style={styles.text}>{email}</Text>
         </View>
 
-        <View style={styles.item}>
-            <Button text="Logout" theme="danger" onPress={Logout}/>
+        <View style={styles.button}>
+            <Button text="Desconectar" theme="danger" onPress={Logout}/>
         </View>
 
     </View>
