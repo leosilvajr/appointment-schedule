@@ -7,17 +7,7 @@ builder.Services.AddDatabaseConfiguration(builder.Configuration);
 builder.Services.AddDependencyInjectionConfiguration();
 builder.Services.AddJwtConfiguration(builder.Configuration);
 builder.Services.AddSwaggerConfiguration();
-
-// Configuração de CORS
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAll", policy =>
-    {
-        policy.AllowAnyOrigin()
-              .AllowAnyMethod()
-              .AllowAnyHeader();
-    });
-});
+builder.Services.AddCorsConfiguration(builder.Configuration);
 
 // Configura o host para ser executado como um serviço do Windows
 builder.Host.UseWindowsService();
@@ -32,7 +22,6 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddEndpointsApiExplorer();
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -41,7 +30,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Configuração do middleware
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseAuthorization();
