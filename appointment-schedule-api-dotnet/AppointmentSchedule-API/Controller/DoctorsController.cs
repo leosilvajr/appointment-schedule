@@ -1,4 +1,5 @@
-﻿using AppointmentSchedule_Application.Services.Interfaces;
+﻿using AppointmentSchedule_Application.DTO;
+using AppointmentSchedule_Application.Services.Interfaces;
 using AppointmentSchedule_Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -38,7 +39,7 @@ namespace AppointmentSchedule_API.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Inserir([FromBody] Doctor doctor)
+        public async Task<IActionResult> Inserir([FromBody] DoctorAddDTO doctor)
         {
             var newDoctor = await _doctorService.Inserir(doctor);
             return CreatedAtAction(nameof(Listar), new { id = newDoctor.Id_doctor }, newDoctor);

@@ -1,4 +1,5 @@
-﻿using AppointmentSchedule_Application.Services.Interfaces;
+﻿using AppointmentSchedule_Application.DTO;
+using AppointmentSchedule_Application.Services.Interfaces;
 using AppointmentSchedule_Domain.Models;
 using AppointmentSchedule_Infra.Repositories.Interfaces;
 
@@ -18,9 +19,13 @@ namespace AppointmentSchedule_Application.Services
             return await _doctorRepository.Listar();
         }
 
-        public async Task<Doctor> Inserir(Doctor doctor)
+        public async Task<Doctor> Inserir(DoctorAddDTO doctor)
         {
-            return await _doctorRepository.Inserir(doctor);
+            Doctor newDoctor = new Doctor();
+            newDoctor.Name = doctor.Name;
+            newDoctor.Specialty = doctor.Specialty;
+            newDoctor.Icon = doctor.Icon;
+            return await _doctorRepository.Inserir(newDoctor);
         }
 
         public async Task<Doctor> Editar(Doctor doctor)
