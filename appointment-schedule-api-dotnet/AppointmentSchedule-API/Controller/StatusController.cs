@@ -4,9 +4,9 @@ namespace AppointmentSchedule_API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class HealthController : ControllerBase
+    public class StatusController : ControllerBase
     {
-        [HttpGet("status")]
+        [HttpGet()]
         public IActionResult GetStatus()
         {
             return Ok(new
