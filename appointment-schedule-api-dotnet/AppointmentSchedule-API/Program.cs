@@ -11,7 +11,6 @@ builder.Services.AddCorsConfiguration(builder.Configuration);
 
 // Configura o host para ser executado como um serviço do Windows
 builder.Host.UseWindowsService();
-builder.WebHost.UseUrls("http://0.0.0.0:3002");
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
