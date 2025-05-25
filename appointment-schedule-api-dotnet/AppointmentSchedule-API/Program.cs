@@ -20,6 +20,12 @@ builder.Services.AddControllers()
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     });
 
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(8092); // escuta em todas as interfaces na porta 8092
+});
+
+
 builder.Services.AddEndpointsApiExplorer();
 var app = builder.Build();
 
