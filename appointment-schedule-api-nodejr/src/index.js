@@ -22,6 +22,6 @@ app.get('/status', (req, res) => {
 // Definindo as rotas principais da API
 app.use(router);
 
-app.listen(3001, () => {
-  console.log("Servidor rodando na porta 3001...");
+app.listen(8091, () => {
+  console.log("Servidor rodando na porta 8091...");
 });

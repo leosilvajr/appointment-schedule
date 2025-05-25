@@ -2,6 +2,7 @@ import { Router } from "express";
 import controllerDoctor from "./controllers/controller.doctor.js";
 import controllerUser from "./controllers/controller.user.js";
 import controllerAppointment from "./controllers/controller.appointment.js";
+import controllerStatus from "./controllers/controller.status.js";
 import jwt from "./token.js";
 
 const router = Router();
@@ -29,5 +30,8 @@ router.get("/users/profile", jwt.ValidateToken, controllerUser.Profile);
 router.get("/appointments",jwt.ValidateToken, controllerAppointment.ListarByUser);
 router.post("/appointments",jwt.ValidateToken, controllerAppointment.Inserir);
 router.delete("/appointments/:id_appointment",jwt.ValidateToken, controllerAppointment.Excluir);
+
+//Status
+router.get('/status', controllerStatus.Status);
 
 export default router; 
